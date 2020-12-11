@@ -98,10 +98,26 @@ function getCss(theme: string, fontSize: string) {
     
     .sub-heading {
         font-family: 'Inter', sans-serif;
-        font-size: 50px;
+        font-size: 75px;
         font-style: normal;
         color: ${foreground};
         line-height: 1;
+    }
+
+    .watermark {
+        font-family: 'Inter', sans-serif;
+        font-style: normal;
+        color: ${foreground};
+        width: 100vw;
+        text-align: left;
+        font-size: 40px;
+        margin-left: 40px;
+        margin-top: 50px;
+    }
+
+    .footer-logo{
+        margin-left: 20px;
+        height: 60px;
     }
     `;
 }
@@ -129,8 +145,12 @@ export function getHtml(parsedReq: ParsedRequest) {
                 md ? marked(text) : sanitizeHtml(text)
             )}
             </div>
-            <h1 class="sub-heading"> Docusaurus - ${imageType} </h1>
+            <h1 class="sub-heading"> Docusaurus ${imageType} </h1>
         </div>
+        <footer class="watermark">
+        Made with Docusaurus
+        <img  class="footer-logo" src="https://v2.docusaurus.io/img/docusaurus_keytar.svg" alt="D2 Logo"  />
+        </footer>
     </body>
 </html>`;
 }
